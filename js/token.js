@@ -6,8 +6,8 @@ async function getToken() {
     const url = "https://smart.albacete.es:443/api/auth/login"; 
     try {
         const response = await axios.post(url, {
-            "username": "default",
-            "password": "default"
+            "username": "prueba",
+            "password": "prueba"
         });
         if (!response) {
             throw new Error(`Error en la solicitud: ${response.data.message}`);

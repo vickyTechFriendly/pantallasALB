@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pantalla.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+    <div class="panel">
+        <h1>Plazas libres</h1>
+        <div class="parking-spot">
+            <span class="spot-label">Avda. España:</span>
+            <span id="parking1" class="spot-status"></span>
+        </div>
+        <div class="parking-spot">
+            <span class="spot-label">Sembrador:</span>
+            <span id="parking2" class="spot-status"></span>
+        </div>
+        <div class="parking-spot">
+            <span class="spot-label">Feria:</span>
+            <span id="parking3" class="spot-status"></span>
+        </div>
+    </div>    
+    <script>
+        //OBTENER TOKEN
+        async function getToken() {
+            const url = "https://smart.albacete.es:443/api/auth/login"; 
+            try {
+                var xmlhttp_token = new XMLHttpRequest();
+                xmlhttp_token.open("POST", url, false);
+                xmlhttp_token.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+                var data = {
+                    "username": "victoria@techfriendly.es",
+                    "password": "techVicky"
+                };
+                var jsonData = JSON.stringify(data);
+                xmlhttp_token.send(jsonData);
+
+                if (xmlhttp_token.status === 200) {
+                    var response = JSON.parse(xmlhttp_token.responseText);
+                    var token = response.token;
+                    //console.log("Token obtenido:", token);
+                    return token;
+                } else {
+                    console.error("Error al obtener el token. Código de estado:", xmlhttp_token.status);
+                    return null;
+                }
+            } catch (error) {
+                console.error("Error al obtener el token:", error.message);
+                return null; 
+            }
+        }
+
+        //OBTENER Y CARGAR LOS DATOS
+        async function cargarDatos(entityIds) {
+            const token = await getToken();
+            if (!token) {
+                console.error("No se pudo obtener un token. La carga de datos se detendrá.");
+                return;
+            }
+            //RECORRER CADA ENTIDAD(dispositivo) PARA CARGAR LOS DATOS
+            entityIds.forEach(async function(entityId, index) {
+                var xmlhttp_pantalla = new XMLHttpRequest();
+                var url_pantalla = `https://smart.albacete.es:443/api/plugins/telemetry/DEVICE/${entityId}/values/timeseries?keys=libres&useStrictDataTypes=true`;
+
+                xmlhttp_pantalla.onreadystatechange = function () {  
+                    if (this.readyState == 4 && this.status == 200) {
+                        var datos_pantalla = JSON.parse(this.responseText);
+
+                        //PLAZAS LIBRES
+                        var plazasLibres = datos_pantalla.libres[0].value;
+
+                        //ACTUALIZA EL HTML
+                        var parkingElementId = "parking" + (index + 1);
+                        document.getElementById(parkingElementId).textContent = plazasLibres;
+                    }
+                };
+
+                xmlhttp_pantalla.open("GET", url_pantalla, true);
+                xmlhttp_pantalla.setRequestHeader("Authorization", "Bearer " + token);
+                xmlhttp_pantalla.send();
+            });
+        }
+        cargarDatos([
+            "c9df5bf0-2c48-11ee-8a97-dd32bc2f934c",
+            "babefbd0-2c48-11ee-8a97-dd32bc2f934c",
+            "b496e740-2c48-11ee-8a97-dd32bc2f934c",
+        ]);
+
+        //CARGAR LOS DARTOS CADA 5 MINUTOS
+        setInterval(function() {
+            cargarDatos([
+                "c9df5bf0-2c48-11ee-8a97-dd32bc2f934c",
+                "babefbd0-2c48-11ee-8a97-dd32bc2f934c",
+                "b496e740-2c48-11ee-8a97-dd32bc2f934c",
+            ]);
+        }, 300000);
+    </script>
+</body>
+</html>

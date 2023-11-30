@@ -22,35 +22,6 @@
             <span id="parking3" class="spot-status"></span>
         </div>
     </div>    
-
-<!--         //OBTENER TOKEN
-       /*  async function getToken() { */ 
-            const url = "https://smart.albacete.es:443/api/auth/login"; 
-            try {
-                var xmlhttp_token = new XMLHttpRequest();
-                xmlhttp_token.open("POST", url, false);
-                xmlhttp_token.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-                var data = {
-                    "username": "victoria@techfriendly.es",
-                    "password": "techVicky"
-                };
-                var jsonData = JSON.stringify(data);
-                xmlhttp_token.send(jsonData);
-
-                if (xmlhttp_token.status === 200) {
-                    var response = JSON.parse(xmlhttp_token.responseText);
-                    var token = response.token;
-                    //console.log("Token obtenido:", token);
-                    return token;
-                } else {
-                    console.error("Error al obtener el token. Código de estado:", xmlhttp_token.status);
-                    return null;
-                }
-            } catch (error) {
-                console.error("Error al obtener el token:", error.message);
-                return null; 
-            }
-        }-->
     <script>
         //OBTENER Y CARGAR LOS DATOS
         async function cargarDatos(accessTokens) {

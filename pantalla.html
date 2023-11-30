@@ -22,9 +22,9 @@
             <span id="parking3" class="spot-status"></span>
         </div>
     </div>    
-    <script>
-        //OBTENER TOKEN
-        async function getToken() {
+
+<!--         //OBTENER TOKEN
+       /*  async function getToken() { */ 
             const url = "https://smart.albacete.es:443/api/auth/login"; 
             try {
                 var xmlhttp_token = new XMLHttpRequest();
@@ -50,51 +50,48 @@
                 console.error("Error al obtener el token:", error.message);
                 return null; 
             }
-        }
-
+        }-->
+    <script>
         //OBTENER Y CARGAR LOS DATOS
-        async function cargarDatos(entityIds) {
-            const token = await getToken();
-            if (!token) {
-                console.error("No se pudo obtener un token. La carga de datos se detendrá.");
-                return;
-            }
+        async function cargarDatos(accessTokens) {
+
             //RECORRER CADA ENTIDAD(dispositivo) PARA CARGAR LOS DATOS
-            entityIds.forEach(async function(entityId, index) {
+            accessTokens.forEach(async function(acessToken, index) {
                 var xmlhttp_pantalla = new XMLHttpRequest();
-                var url_pantalla = `https://smart.albacete.es:443/api/plugins/telemetry/DEVICE/${entityId}/values/timeseries?keys=libres&useStrictDataTypes=true`;
+                var url_pantalla = `https://smart.albacete.es:443/api/v1/${acessToken}/attributes?clientKeys=%20&sharedKeys=libres`;
 
                 xmlhttp_pantalla.onreadystatechange = function () {  
                     if (this.readyState == 4 && this.status == 200) {
                         var datos_pantalla = JSON.parse(this.responseText);
+                        console.log(datos_pantalla)
 
                         //PLAZAS LIBRES
-                        var plazasLibres = datos_pantalla.libres[0].value;
+                        var plazasLibres = datos_pantalla.shared.libres;
 
                         //ACTUALIZA EL HTML
                         var parkingElementId = "parking" + (index + 1);
                         document.getElementById(parkingElementId).textContent = plazasLibres;
                     }
                 };
-
                 xmlhttp_pantalla.open("GET", url_pantalla, true);
-                xmlhttp_pantalla.setRequestHeader("Authorization", "Bearer " + token);
                 xmlhttp_pantalla.send();
             });
+
+
         }
         cargarDatos([
-            "c9df5bf0-2c48-11ee-8a97-dd32bc2f934c",
-            "babefbd0-2c48-11ee-8a97-dd32bc2f934c",
-            "b496e740-2c48-11ee-8a97-dd32bc2f934c",
+            "iZm0hf3yt1NuH7tcLDKV",
+            "LQkCw9qyujwKd0hzyDId",
+            "6esSOXeBJDESd55Ehlqz",
         ]);
 
         //CARGAR LOS DARTOS CADA 5 MINUTOS
         setInterval(function() {
             cargarDatos([
-                "c9df5bf0-2c48-11ee-8a97-dd32bc2f934c",
-                "babefbd0-2c48-11ee-8a97-dd32bc2f934c",
-                "b496e740-2c48-11ee-8a97-dd32bc2f934c",
-            ]);
+            "iZm0hf3yt1NuH7tcLDKV",
+            "LQkCw9qyujwKd0hzyDId",
+            "6esSOXeBJDESd55Ehlqz",
+        ]);
         }, 300000);
     </script>
 </body>

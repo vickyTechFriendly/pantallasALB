@@ -2,43 +2,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Aldrich&family=Lexend+Exa:wght@600&family=Quantico&display=swap');
 
 body {
-            font-family: Arial, sans-serif;
-            background-color: #000;
-            color: #00ff00; 
-        }
-
-        .panel {
-            background-color: #000;
-            width: 90%;
-            margin: 20px auto;
-            padding: 20px;
-            border: 1px solid #00ff00; 
-            border-radius: 5px;
-        }
-
-        h1 {
-            font-size: 2.5em;
-            font-family: 'Lexend Exa', sans-serif;
-            margin-bottom: 10px;
-            padding: 0;
-            text-align: center;
-            color: #00ff00; 
-        }
-
-        .parking-spot {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-
-        .spot-label {
-            font-family: 'Quantico', sans-serif;
-            font-weight: bold;;
-            color: white;
-            font-size: 2em;
-        }
-
-        .spot-status {
-            font-family: 'Quantico', sans-serif;
-            font-size: 3em;
-        }
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #00ff00; 
+    margin: 0;
+}
+.panel {
+    background-color: #000;
+    width: 192mm; 
+    height: 256mm; 
+    margin: 0; 
+    padding: 20px;
+    border: 1px solid #00ff00; 
+    border-radius: 5px;
+}
+h1 {
+    font-size: 2.5em;
+    font-family: 'Lexend Exa', sans-serif;
+    margin-bottom: 10px;
+    padding: 0;
+    text-align: center;
+    color: #00ff00; 
+}
+.parking-spot {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.spot-label {
+    font-family: 'Quantico', sans-serif;
+    font-weight: bold;;
+    color: white;
+    font-size: 2em;
+}
+.spot-status {
+    font-family: 'Quantico', sans-serif;
+    font-size: 3em;
+}

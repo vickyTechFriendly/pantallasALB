@@ -41,8 +41,16 @@
 
                         //ACTUALIZA EL HTML
                         var parkingElementId = "parking" + (index + 1);
-                        document.getElementById(parkingElementId).textContent = plazasLibres;
+                         // si < 0 "completo"
+                         if (plazasLibres < 0) {
+                            document.getElementById(parkingElementId).textContent = "Completo";
+                            document.getElementById(parkingElementId).classList.add("completo");
+                        } else {
+                            document.getElementById(parkingElementId).textContent = plazasLibres;
+                            document.getElementById(parkingElementId).classList.remove("completo");
+                        }
                     }
+
                 };
                 xmlhttp_pantalla.open("GET", url_pantalla, true);
                 xmlhttp_pantalla.send();

@@ -39,3 +39,19 @@ h1 {
     font-family: 'Quantico', sans-serif;
     font-size: 3em;
 }
+
+.spot-status {
+    font-family: 'Quantico', sans-serif;
+    font-size: 3em;
+    color: #00ff00; /* Color predeterminado para números */
+}
+
+.spot-status {
+    font-family: 'Quantico', sans-serif;
+    font-size: 3em;
+    color: #00ff00; 
+}
+
+.completo {
+    color: red;
+}

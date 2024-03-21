@@ -23,6 +23,7 @@ h1 {
     padding: 0;
     text-align: center;
     color: #00ff00; 
+    margin-right: 100px;
 }
 .parking-spot {
     display: flex;
@@ -38,6 +39,7 @@ h1 {
 .spot-status {
     font-family: 'Quantico', sans-serif;
     font-size: 3em;
+    margin-right: 200px;
 }
 
 .spot-status {

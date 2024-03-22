@@ -34,7 +34,7 @@
                 xmlhttp_pantalla.onreadystatechange = function () {  
                     if (this.readyState == 4 && this.status == 200) {
                         var datos_pantalla = JSON.parse(this.responseText);
-                        console.log(datos_pantalla)
+                        //console.log(datos_pantalla)
 
                         //PLAZAS LIBRES
                         var plazasLibres = datos_pantalla.shared.libres;

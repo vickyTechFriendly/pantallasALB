@@ -4,7 +4,7 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #000;
-    color: #9d1a9f; 
+    color: #fb00ff; 
     margin: 0;
 }
 .panel {
@@ -22,7 +22,7 @@ h1 {
     margin-bottom: 10px;
     padding: 0;
     text-align: center;
-    color: #00ff00; 
+    color: #dc3cbc; 
     margin-right: 100px;
 }
 .parking-spot {

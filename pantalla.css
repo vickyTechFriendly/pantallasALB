@@ -15,15 +15,23 @@ body {
     margin: 0; 
     padding: 10px;
 }
-h1 {
-    font-size: 16px;
+.encabezado {
+    font-size: 5px;
     font-family: 'Lexend Exa', sans-serif;
-    margin-bottom: 5px;
-    padding: 0;
-    text-align: center;
-    color: #00ff00; 
-    margin-right: 18px;
+    display: flex;
+    justify-content: flex-start;
+    color: #e8b44d; 
+    /*margin-right: 18px;*/
 }
+.plazas-libres {
+    padding-left: 15px;
+}
+
+img{
+    height: 12px;
+    margin-top: 3px;
+}
+
 .parking-spot {
     display: flex;
     justify-content: space-between;
@@ -33,16 +41,31 @@ h1 {
     font-family: 'Quantico', sans-serif;
     font-weight: bold;;
     color: white;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .spot-status {
     font-family: 'Quantico', sans-serif;
-    font-size: 18px;
+    font-size: 14px;
     color: #00ff00; /* Color predeterminado para números */
     margin-right: 40px;
 }
 
 .completo {
     color: red;
+}
+
+#aparcamientos{
+    padding-left: 5px;
+}
+#avenida {
+    margin-right: 10px;
+}
+
+#sembrador {
+    margin-right: 26px;
+}
+
+#feria {
+    margin-right: 75px;
 }

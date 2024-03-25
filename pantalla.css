@@ -27,7 +27,7 @@ body {
     padding-left: 15px;
 }
 
-img{
+.parkingALB{
     height: 12px;
     margin-top: 3px;
 }
@@ -68,4 +68,14 @@ img{
 
 #feria {
     margin-right: 75px;
+}
+
+#logoayto{
+    width: 50px;
+    height: auto;
+}
+
+.pie{
+    margin-top: 60px;
+    margin-left: 50px;
 }

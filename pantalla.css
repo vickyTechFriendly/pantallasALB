@@ -16,7 +16,7 @@ body {
     padding: 10px;
 }
 .encabezado {
-    font-size: 5px;
+    font-size: 6px;
     font-family: 'Lexend Exa', sans-serif;
     display: flex;
     justify-content: flex-start;
@@ -24,12 +24,12 @@ body {
     /*margin-right: 18px;*/
 }
 .plazas-libres {
-    padding-left: 15px;
+    padding-left: 10px;
 }
 
 .parkingALB{
-    height: 12px;
-    margin-top: 3px;
+    height: 13px;
+    margin-top: 4px;
 }
 
 .parking-spot {
@@ -41,14 +41,14 @@ body {
     font-family: 'Quantico', sans-serif;
     font-weight: bold;;
     color: white;
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .spot-status {
     font-family: 'Quantico', sans-serif;
     font-size: 14px;
     color: #00ff00; /* Color predeterminado para números */
-    margin-right: 40px;
+    margin-right: 25px;
 }
 
 .completo {
@@ -56,26 +56,26 @@ body {
 }
 
 #aparcamientos{
-    padding-left: 5px;
+    padding-left: 2px;
 }
 #avenida {
-    margin-right: 10px;
+    margin-right: 19px;
 }
 
 #sembrador {
-    margin-right: 26px;
+    margin-right: 37px;
 }
 
 #feria {
-    margin-right: 75px;
+    margin-right: 87px;
 }
 
 #logoayto{
-    width: 50px;
+    width: 100px;
     height: auto;
 }
 
 .pie{
-    margin-top: 60px;
-    margin-left: 50px;
+    margin-top: 58px;
+    margin-left: 30px;
 }

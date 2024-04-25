@@ -27,6 +27,16 @@
             <span id="feria" class="spot-label">Feria:</span>
             <span id="parking3" class="spot-status"></span>
         </div>
+        <div class="parking-spot">
+            <img class="parkingALB" src="parkingALB.png">
+            <span id="medina" class="spot-label">Pablo Medina:</span>
+            <span id="parking4" class="spot-status"></span>
+        </div>
+        <div class="parking-spot">
+            <img class="parkingALB" src="parkingALB.png">
+            <span id="catedral" class="spot-label">Catedral:</span>
+            <span id="parking5" class="spot-status"></span>
+        </div>
         <div class="pie">
             <img id="logoayto" src="LogoALB.png">
         </div>
@@ -51,13 +61,13 @@
 
                         //ACTUALIZA EL HTML
                         var parkingElementId = "parking" + (index + 1);
-                         // si < 0 "completo"
+                         // si < 0 "Lleno"
                          if (plazasLibres < 0) {
-                            document.getElementById(parkingElementId).textContent = "Completo";
-                            document.getElementById(parkingElementId).classList.add("completo");
+                            document.getElementById(parkingElementId).textContent = "Lleno";
+                            document.getElementById(parkingElementId).classList.add("lleno");
                         } else {
                             document.getElementById(parkingElementId).textContent = plazasLibres;
-                            document.getElementById(parkingElementId).classList.remove("completo");
+                            document.getElementById(parkingElementId).classList.remove("lleno");
                         }
                     }
 
@@ -72,6 +82,8 @@
             "iZm0hf3yt1NuH7tcLDKV",
             "LQkCw9qyujwKd0hzyDId",
             "6esSOXeBJDESd55Ehlqz",
+            "clkO8CR9gf6x6kDEBxBX",
+            "D2tmgxtoXiQdZHpajBal",
         ]);
 
         //CARGAR LOS DARTOS CADA 5 MINUTOS
@@ -80,6 +92,8 @@
             "iZm0hf3yt1NuH7tcLDKV",
             "LQkCw9qyujwKd0hzyDId",
             "6esSOXeBJDESd55Ehlqz",
+            "clkO8CR9gf6x6kDEBxBX",
+            "D2tmgxtoXiQdZHpajBal",
         ]);
         }, 300000);
     </script>
